@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge %ID% - %TITLE% | CRISIS LAB </title>
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/animations.css">
+    <link rel="stylesheet" href="../../assets/css/cyberpunk.css">
+    <link rel="stylesheet" href="../../assets/css/pages.css">
+</head>
+<body>
+    <div class="cyber-bg">
+        <div class="grid-overlay"></div>
+        <div class="scan-line"></div>
+        <div class="particles" id="particles"></div>
+    </div>
+
+    <nav class="navbar glass" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-icon">⌘</span>
+                <span class="brand-text">CRISIS LAB</span>
+                <span class="brand-sub">DEBUG THE ARENA</span>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="../../index.html" class="nav-link">Home</a>
+                <a href="../../rules.html" class="nav-link">Rules</a>
+                <a href="../../dashboard.html" class="nav-link">Dashboard</a>
+                <a href="../../scoreboard.html" class="nav-link">Scoreboard</a>
+            </div>
+            <div class="nav-controls">
+                <div class="timer-display" id="timerDisplay">⏱ 90:00</div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="toggle-icon">🌙</span>
+                </button>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="challenge-page">
+        <div class="challenge-container">
+            <div class="challenge-header" style="text-align: center; margin-bottom: 2rem;">
+                <span class="badge badge-%DIFFICULTY%" data-challenge="difficulty">%DIFFICULTY_UPPER%</span>
+                <h1 style="font-size: 2rem; font-weight: 800; margin: 1rem 0;" data-challenge="title">%TITLE%</h1>
+                <p style="color: var(--text-secondary);">Challenge <span data-challenge="number">#%ID_PADDED%</span> • <span data-challenge="points">%POINTS% pts</span></p>
+            </div>
+
+            <div class="challenge-problem">
+                <div class="challenge-description glass">
+                    <h2>📋 Problem Description</h2>
+                    <p data-challenge="description">%DESCRIPTION%</p>
+                    
+                    <div class="objective">
+                        <h3>🎯 Objective</h3>
+                        <p data-challenge="objective">%OBJECTIVE%</p>
+                    </div>
+
+                    <div class="challenge-actions">
+                        <a href="../../dashboard.html" class="btn btn-secondary btn-sm">← Back to Dashboard</a>
+                    </div>
+
+                    <div class="hints-section">
+                        <h3>💡 Hints</h3>
+                        <button class="hint-toggle" id="hint1Btn">🔎 Hint 1</button>
+                        <div class="hint-content" id="hint1Content"></div>
+                        <br>
+                        <button class="hint-toggle" id="hint2Btn">🔎 Hint 2</button>
+                        <div class="hint-content" id="hint2Content"></div>
+                    </div>
+                </div>
+
+                <div class="challenge-code glass">
+                    <h3>💻 Broken Code</h3>
+                    <div class="challenge-code-tabs">
+                        <!-- Tabs rendered by JavaScript -->
+                    </div>
+                    <div class="code-editor">
+                        <div class="code-editor-header">
+                            <span class="terminal-dot red"></span>
+                            <span class="terminal-dot yellow"></span>
+                            <span class="terminal-dot green"></span>
+                            <span style="margin-left: auto; color: var(--text-muted); font-size: 0.8rem;">Read-only • Inspect the bugs</span>
+                        </div>
+                        <div class="code-editor-content">
+                            <!-- Code content rendered by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="challenge-submission glass" style="margin-top: 2rem;">
+                <h3>📝 Submit Answer</h3>
+                <form id="flagForm">
+                    <div class="flag-input-group">
+                        <input type="text" id="flagInput" class="flag-input" placeholder="Type your answer here...">
+                        <button type="submit" class="btn btn-primary">
+                            <span>🚀 Submit</span>
+                        </button>
+                    </div>
+                </form>
+                <div id="flagResult"></div>
+            </div>
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../../assets/js/supabase-config.js"></script>
+    <script src="../../assets/js/supabase-client.js"></script>
+    <script src="../../assets/js/theme.js"></script>
+    <script src="../../assets/js/particles.js"></script>
+    <script src="../../assets/js/navigation.js"></script>
+    <script src="../../assets/js/animations.js"></script>
+    <script src="../../assets/js/timer.js"></script>
+    <script src="../../assets/js/challenges.js"></script>
+    <script src="../../assets/js/main.js"></script>
+</body>
+</html>
+

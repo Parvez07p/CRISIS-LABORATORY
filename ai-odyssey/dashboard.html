@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - CRISIS LAB | Debug the Arena</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/cyberpunk.css">
+    <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+    <div class="cyber-bg">
+        <div class="grid-overlay"></div>
+        <div class="scan-line"></div>
+        <div class="particles" id="particles"></div>
+    </div>
+
+    <nav class="navbar glass" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-icon">⌘</span>
+                <span class="brand-text">CRISIS LAB</span>
+                <span class="brand-sub">DEBUG THE ARENA</span>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="rules.html" class="nav-link">Rules</a>
+                <a href="login.html" class="nav-link">Login</a>
+                <a href="dashboard.html" class="nav-link active">Dashboard</a>
+                <a href="scoreboard.html" class="nav-link">Scoreboard</a>
+            </div>
+            <div class="nav-controls">
+                <div class="timer-display" id="timerDisplay">⏱ 90:00</div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="toggle-icon">🌙</span>
+                </button>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-page">
+        <div class="dashboard-header">
+            <div>
+                <h1>🗺️ Challenge Dashboard</h1>
+                <p style="color: var(--text-secondary);">Select a challenge to begin debugging</p>
+            </div>
+            <div class="dashboard-info">
+                <div class="stat-card glass" style="padding: 0.75rem 1.5rem;">
+                    <span class="stat-number" style="font-size: 1.25rem;" data-stat="solved">0</span>
+                    <span class="stat-label">/ <span data-stat="total">50</span> Solved</span>
+                </div>
+                <div class="stat-card glass" style="padding: 0.75rem 1.5rem;">
+                    <span class="stat-number" style="font-size: 1.25rem; color: var(--accent-success);" data-stat="points">0</span>
+                    <span class="stat-label">Points</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-stats">
+            <div class="dashboard-stat glass">
+                <div class="stat-value" data-stat="easy">0</div>
+                <div class="stat-label">Easy Solved</div>
+            </div>
+            <div class="dashboard-stat glass">
+                <div class="stat-value" style="color: var(--accent-warning);" data-stat="medium">0</div>
+                <div class="stat-label">Medium Solved</div>
+            </div>
+            <div class="dashboard-stat glass">
+                <div class="stat-value" style="color: var(--accent-danger);" data-stat="hard">0</div>
+                <div class="stat-label">Hard Solved</div>
+            </div>
+            <div class="dashboard-stat glass">
+                <div class="stat-value" style="color: var(--accent-primary);" data-stat="progress">0%</div>
+                <div class="stat-label">Completion</div>
+            </div>
+        </div>
+
+        <div class="challenge-filters">
+            <button class="filter-btn active" data-filter="all">🔍 All</button>
+            <button class="filter-btn" data-filter="easy">🟢 Easy</button>
+            <button class="filter-btn" data-filter="medium">🟡 Medium</button>
+            <button class="filter-btn" data-filter="hard">🔴 Hard</button>
+            <button class="filter-btn" data-filter="solved">✅ Solved</button>
+            <button class="filter-btn" data-filter="unsolved">🔓 Unsolved</button>
+        </div>
+
+        <div class="challenges-grid" id="challengesGrid">
+            <!-- Challenges will be rendered by JavaScript -->
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="assets/js/supabase-config.js"></script>
+    <script src="assets/js/supabase-client.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/particles.js"></script>
+    <script src="assets/js/navigation.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/timer.js"></script>
+    <script src="assets/js/challenges.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+

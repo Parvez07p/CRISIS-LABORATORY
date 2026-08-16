@@ -59,6 +59,7 @@ begin
     -- 2. Check Supabase Auth JWT app_metadata / user_metadata / claims
     v_app_role := coalesce(
         auth.jwt() -> 'app_metadata' ->> 'role',
+        auth.jwt() -> 'user_metadata' ->> 'role',
         auth.jwt() ->> 'role'
     );
     if v_app_role = 'admin' then
@@ -224,14 +225,11 @@ create policy "scores_select" on public.team_scores
 -- Score updates allowed during competition
 drop policy if exists "scores_insert" on public.team_scores;
 create policy "scores_insert" on public.team_scores
-    for insert
-    with check (public.is_admin());
+    for insert with check (true);
 
 drop policy if exists "scores_update" on public.team_scores;
 create policy "scores_update" on public.team_scores
-    for update
-    using (public.is_admin())
-    with check (public.is_admin());
+    for update using (true) with check (true);
 
 -- 4. EVENT REGISTRATIONS TABLE --------------------------------
 create table if not exists public.registrations (
@@ -413,6 +411,7 @@ begin
         jsonb_agg(
             jsonb_build_object(
                 'member_name', tm.member_name,
+                'register_number', tm.register_number,
                 'member_position', tm.member_position
             ) order by tm.member_position asc
         ),

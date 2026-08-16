@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI Odyssey registration detail & payment review.">
+    <meta name="theme-color" content="#0a0a1a">
+    <title>Registration Detail - AI Odyssey Control</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/cyberpunk.css">
+    <link rel="stylesheet" href="assets/css/registration.css">
+</head>
+<body>
+    <div class="cyber-bg">
+        <div class="grid-overlay"></div>
+        <div class="scan-line"></div>
+        <div class="particles" id="particles"></div>
+    </div>
+
+    <nav class="navbar glass" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-icon">⌘</span>
+                <span class="brand-text">AI ODYSSEY</span>
+                <span class="brand-sub">CONTROL ROOM</span>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="admin-registrations.html" class="nav-link">Registrations</a>
+                <a href="admin.html" class="nav-link">Arena Admin</a>
+                <a href="index.html" class="nav-link">Home</a>
+            </div>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="toggle-icon">🌙</span>
+                </button>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="admin-page">
+        <div class="admin-header">
+            <a href="admin-registrations.html" class="btn btn-secondary btn-sm" style="position: absolute; left: 0; top: 0.5rem;">← Back to List</a>
+            <h1 id="detailTitle">REGISTRATION DETAIL</h1>
+            <p class="admin-subtitle" id="detailSubtitle">Loading team details from Supabase...</p>
+            <div class="section-divider"></div>
+        </div>
+
+        <div id="detailBody" style="position: relative;">
+            <div class="reg-loading"><span class="spinner-inline"></span>Loading registration record...</div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="brand-icon">⌘</span>
+                <span>AI ODYSSEY</span>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="rules.html">Rules</a>
+                <a href="register.html">Register</a>
+                <a href="scoreboard.html">Scoreboard</a>
+                <a href="admin.html">Arena Admin</a>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2026 AI Odyssey — Debug the Arena. Official Event Platform.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="assets/js/supabase-config.js"></script>
+    <script src="assets/js/supabase-client.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/particles.js"></script>
+    <script src="assets/js/navigation.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/admin.js"></script>
+</body>
+</html>

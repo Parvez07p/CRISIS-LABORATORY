@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Registration Confirmation - AI Odyssey Debug the Arena.">
+    <meta name="theme-color" content="#0a0a1a">
+    <title>Registration Successful - AI Odyssey | Debug the Arena</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/cyberpunk.css">
+    <link rel="stylesheet" href="assets/css/registration.css">
+    <style>
+        @media print {
+            .navbar, .footer, .cyber-bg, .receipt-actions, .no-print {
+                display: none !important;
+            }
+            body {
+                background: #fff !important;
+                color: #000 !important;
+            }
+            .receipt-card {
+                box-shadow: none !important;
+                border: 1px solid #333 !important;
+                background: #fff !important;
+                color: #000 !important;
+            }
+            .receipt-table td {
+                color: #000 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cyber-bg">
+        <div class="grid-overlay"></div>
+        <div class="scan-line"></div>
+        <div class="particles" id="particles"></div>
+    </div>
+
+    <nav class="navbar glass" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-icon">⌘</span>
+                <span class="brand-text">AI ODYSSEY</span>
+                <span class="brand-sub">DEBUG THE ARENA</span>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="rules.html" class="nav-link">Rules</a>
+                <a href="register.html" class="nav-link">Register</a>
+                <a href="status.html" class="nav-link">Check Status</a>
+                <a href="login.html" class="nav-link">Login</a>
+                <a href="scoreboard.html" class="nav-link">Scoreboard</a>
+            </div>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="toggle-icon">🌙</span>
+                </button>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="reg-page">
+        <div class="reg-container" style="max-width: 750px;">
+            <div class="receipt-card glass">
+                <div class="receipt-header">
+                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🎉</div>
+                    <h1 class="glitch" data-text="REGISTRATION SUCCESSFUL" style="font-size: 1.9rem; margin-bottom: 0.5rem;">REGISTRATION SUCCESSFUL</h1>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                        Your team registration has been recorded for <strong style="color: var(--accent-primary);">AI Odyssey — Debug the Arena</strong>.
+                    </p>
+                </div>
+
+                <div class="reg-id-display-box">
+                    <span style="color: var(--text-secondary); font-size: 0.9rem;">REGISTRATION ID:</span>
+                    <span class="reg-id-text" id="displayRegId">AIOD-XXXXXX</span>
+                    <button type="button" class="btn btn-secondary btn-sm" id="copyIdBtn">Copy ID</button>
+                </div>
+
+                <table class="receipt-table">
+                    <tr>
+                        <td>Team Name</td>
+                        <td id="displayTeamName">Loading...</td>
+                    </tr>
+                    <tr>
+                        <td>Competition Event</td>
+                        <td>AI Odyssey — Debug the Arena</td>
+                    </tr>
+                    <tr>
+                        <td>Event Date</td>
+                        <td>02 September 2026</td>
+                    </tr>
+                    <tr>
+                        <td>Payment Verification</td>
+                        <td><span class="status-pill status-PENDING">UNDER REVIEW</span></td>
+                    </tr>
+                    <tr>
+                        <td>Submission Status</td>
+                        <td style="color: var(--accent-success);">Received & Saved</td>
+                    </tr>
+                </table>
+
+                <div class="step-note" style="margin-top: 1.5rem; background: rgba(0,0,0,0.3); padding: 1rem; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-primary);">
+                    <p><strong>Next Steps:</strong></p>
+                    <ul style="margin-left: 1.25rem; font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
+                        <li>Your payment proof is currently under review by the event coordinators.</li>
+                        <li>Save your Registration ID for team check-in and to query your status anytime.</li>
+                        <li>You will be cleared to enter the Arena on competition day once verified.</li>
+                    </ul>
+                </div>
+
+                <div class="receipt-actions no-print">
+                    <button type="button" class="btn btn-secondary" onclick="window.print()">🖨️ Print / Save Receipt</button>
+                    <a href="status.html" class="btn btn-secondary" id="trackStatusBtn">🔍 Track Status</a>
+                    <a href="index.html" class="btn btn-primary glow">🏠 Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="brand-icon">⌘</span>
+                <span>AI ODYSSEY</span>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="rules.html">Rules</a>
+                <a href="register.html">Register</a>
+                <a href="status.html">Check Status</a>
+                <a href="scoreboard.html">Scoreboard</a>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2026 AI Odyssey — Debug the Arena. Official Event Platform.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/particles.js"></script>
+    <script src="assets/js/navigation.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const regId = params.get('registrationId') || 'AIOD-XXXXXX';
+            const team = params.get('teamName') || 'Squad';
+
+            const idEl = document.getElementById('displayRegId');
+            const teamEl = document.getElementById('displayTeamName');
+            const trackBtn = document.getElementById('trackStatusBtn');
+            const copyBtn = document.getElementById('copyIdBtn');
+
+            if (idEl) idEl.textContent = regId;
+            if (teamEl) teamEl.textContent = team;
+            if (trackBtn && regId !== 'AIOD-XXXXXX') {
+                trackBtn.href = `status.html?id=${encodeURIComponent(regId)}`;
+            }
+
+            if (copyBtn) {
+                copyBtn.addEventListener('click', async () => {
+                    try {
+                        await navigator.clipboard.writeText(regId);
+                        copyBtn.textContent = 'Copied! ✓';
+                        setTimeout(() => copyBtn.textContent = 'Copy ID', 2000);
+                        if (window.AnimationManager) window.AnimationManager.showToast('Registration ID copied.', 'success');
+                    } catch (e) {
+                        alert('ID: ' + regId);
+                    }
+                });
+            }
+
+            // Launch subtle celebration confetti
+            if (window.AnimationManager && window.AnimationManager.createConfetti) {
+                setTimeout(() => window.AnimationManager.createConfetti(40), 300);
+            }
+        });
+    </script>
+</body>
+</html>

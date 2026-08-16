@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Register your team for AI Odyssey — Debug the Arena. Official event registration.">
+    <meta name="theme-color" content="#0a0a1a">
+    <title>Team Registration - AI Odyssey | Debug the Arena</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/cyberpunk.css">
+    <link rel="stylesheet" href="assets/css/pages.css">
+    <link rel="stylesheet" href="assets/css/registration.css">
+</head>
+<body>
+    <div class="cyber-bg">
+        <div class="grid-overlay"></div>
+        <div class="scan-line"></div>
+        <div class="particles" id="particles"></div>
+    </div>
+
+    <nav class="navbar glass" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-icon">⌘</span>
+                <span class="brand-text">AI ODYSSEY</span>
+                <span class="brand-sub">DEBUG THE ARENA</span>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="rules.html" class="nav-link">Rules</a>
+                <a href="register.html" class="nav-link active">Register</a>
+                <a href="status.html" class="nav-link">Check Status</a>
+                <a href="login.html" class="nav-link">Login</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="scoreboard.html" class="nav-link">Scoreboard</a>
+            </div>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="toggle-icon">🌙</span>
+                </button>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="reg-page">
+        <div class="reg-container">
+            <div class="reg-header">
+                <div class="event-meta-badge">
+                    <span class="pulse-dot"></span>
+                    <span>EVENT DATE: 02 SEPTEMBER 2026</span>
+                </div>
+                <h1 class="glitch" data-text="TEAM REGISTRATION">TEAM REGISTRATION</h1>
+                <p class="reg-subtitle">Register your squad for <strong>AI Odyssey — Debug the Arena</strong>.</p>
+                <div class="rule-callout">
+                    <span class="rule-icon">ℹ️</span>
+                    <span><strong>Rule:</strong> Team size: 2–3 members including the leader.</span>
+                </div>
+                <div class="section-divider"></div>
+            </div>
+
+            <!-- Wizard Progress -->
+            <div class="wizard-progress" id="wizardProgress">
+                <div class="progress-step active" data-step="1">
+                    <span class="step-num">1</span>
+                    <span class="step-label">Team Details</span>
+                </div>
+                <div class="progress-step" data-step="2">
+                    <span class="step-num">2</span>
+                    <span class="step-label">Team Members</span>
+                </div>
+                <div class="progress-step" data-step="3">
+                    <span class="step-num">3</span>
+                    <span class="step-label">Payment & Verification</span>
+                </div>
+            </div>
+
+            <form id="registrationForm" novalidate>
+                <!-- STEP 1: Team Details & Leader -->
+                <section class="reg-step glass active" id="step-1" data-step="1">
+                    <div class="step-header-row">
+                        <h2 class="step-title"><span class="step-badge">01</span> Team & Leader Information</h2>
+                        <span class="team-requirement-tag">2–3 Members Required</span>
+                    </div>
+                    <p class="step-note">Enter your squad name and team leader details. The leader is automatically Member 1.</p>
+
+                    <div class="form-group">
+                        <label class="form-label" for="teamName">Team Name *</label>
+                        <input type="text" id="teamName" class="form-input" maxlength="60" placeholder="e.g. Binary Bandits" autocomplete="off">
+                        <div class="form-error" id="err-teamName"></div>
+                    </div>
+
+                    <div class="form-divider-title">// TEAM LEADER (MEMBER 01)</div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="leaderName">Leader Full Name *</label>
+                            <input type="text" id="leaderName" class="form-input" maxlength="80" placeholder="e.g. John Doe">
+                            <div class="form-error" id="err-leaderName"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="leaderRegisterNumber">Leader Register Number *</label>
+                            <input type="text" id="leaderRegisterNumber" class="form-input mono" maxlength="30" placeholder="e.g. 22CS101" autocomplete="off">
+                            <div class="form-error" id="err-leaderRegisterNumber"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="leaderEmail">Leader Email Address *</label>
+                            <input type="email" id="leaderEmail" class="form-input" maxlength="120" placeholder="leader@college.edu">
+                            <div class="form-error" id="err-leaderEmail"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="leaderPhone">Leader Mobile Number *</label>
+                            <input type="tel" id="leaderPhone" class="form-input" maxlength="10" inputmode="numeric" placeholder="10-digit mobile number">
+                            <div class="form-error" id="err-leaderPhone"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- STEP 2: Team Members -->
+                <section class="reg-step glass" id="step-2" data-step="2">
+                    <div class="step-header-row">
+                        <h2 class="step-title"><span class="step-badge">02</span> Squad Roster</h2>
+                        <div class="live-counter-badge" id="liveMemberCountBadge">
+                            <span class="counter-icon">👥</span>
+                            <span id="liveMemberCountText">2 / 3 Members</span>
+                        </div>
+                    </div>
+                    <p class="step-note">The team leader counts as Member 1. Member 2 is required, and Member 3 is optional.</p>
+
+                    <!-- Member 1: Leader Readonly Sync Card -->
+                    <div class="member-card synced-leader-card">
+                        <div class="member-head">
+                            <span class="member-title">MEMBER 1 // SQUAD LEADER</span>
+                            <span class="badge badge-success">Leader</span>
+                        </div>
+                        <div class="leader-sync-info">
+                            <div class="sync-row">
+                                <span class="sync-label">Name:</span>
+                                <span class="sync-val" id="syncLeaderName">---</span>
+                            </div>
+                            <div class="sync-row">
+                                <span class="sync-label">Register No:</span>
+                                <span class="sync-val mono" id="syncLeaderReg">---</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Member 2: Required -->
+                    <div class="member-card" id="member2Card">
+                        <div class="member-head">
+                            <span class="member-title">MEMBER 2 // TEAM MATE</span>
+                            <span class="badge badge-primary">Required</span>
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label" for="member2Name">Full Name *</label>
+                                <input type="text" id="member2Name" class="form-input" maxlength="80" placeholder="Full name">
+                                <div class="form-error" id="err-member2Name"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="member2RegisterNumber">Register Number *</label>
+                                <input type="text" id="member2RegisterNumber" class="form-input mono" maxlength="30" placeholder="e.g. 22CS102">
+                                <div class="form-error" id="err-member2RegisterNumber"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Member 3: Optional -->
+                    <div class="member-card" id="member3Card" style="display: none;">
+                        <div class="member-head">
+                            <span class="member-title">MEMBER 3 // OPTIONAL SQUAD MATE</span>
+                            <div class="member-actions">
+                                <span class="badge badge-warning">Optional</span>
+                                <button type="button" class="btn-remove-member" id="removeMember3Btn" title="Remove Member 3">✕ Remove</button>
+                            </div>
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label" for="member3Name">Full Name *</label>
+                                <input type="text" id="member3Name" class="form-input" maxlength="80" placeholder="Full name">
+                                <div class="form-error" id="err-member3Name"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="member3RegisterNumber">Register Number *</label>
+                                <input type="text" id="member3RegisterNumber" class="form-input mono" maxlength="30" placeholder="e.g. 22CS103">
+                                <div class="form-error" id="err-member3RegisterNumber"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add Member Action -->
+                    <div class="add-member-wrapper" id="addMemberWrapper">
+                        <button type="button" class="btn btn-secondary add-member-btn" id="addMemberBtn">
+                            <span>+ Add Member</span>
+                            <span class="add-note">(Max 3 members total)</span>
+                        </button>
+                    </div>
+                    <div class="form-error" id="err-members"></div>
+                </section>
+
+                <!-- STEP 3: Payment & Proof -->
+                <section class="reg-step glass" id="step-3" data-step="3">
+                    <h2 class="step-title"><span class="step-badge">03</span> College Payment & Verification</h2>
+                    <p class="step-note">Complete the registration fee payment via UPI, then upload the transaction receipt screenshot.</p>
+
+                    <!-- College Payment Box -->
+                    <div class="payment-card glass">
+                        <div class="payment-card-head">
+                            <span class="payment-tag">COLLEGE PAYMENT</span>
+                            <span class="payment-event-name">AI Odyssey — Debug the Arena</span>
+                        </div>
+                        
+                        <div class="payment-grid-layout">
+                            <div class="qr-col">
+                                <div class="qr-container" id="qrContainer">
+                                    <div class="qr-box">
+                                        <div class="qr-cyber-corners"></div>
+                                        <div class="qr-placeholder" id="qrPlaceholder">
+                                            <span class="qr-icon">📱</span>
+                                            <span class="qr-text">[COLLEGE QR CODE]</span>
+                                            <span class="qr-sub">Scan using any UPI App</span>
+                                        </div>
+                                        <img id="qrImage" src="" alt="College Payment QR Code" style="display:none;" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="upi-col">
+                                <div class="upi-detail-block">
+                                    <span class="upi-meta-label">College UPI ID</span>
+                                    <div class="upi-copy-container">
+                                        <code class="upi-id-text mono" id="collegeUpiIdDisplay">[UPI ID]</code>
+                                        <button type="button" class="btn btn-secondary btn-sm" id="copyUpiBtn">
+                                            <span id="copyBtnText">Copy</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="upi-instructions">
+                                    <p>1. Open Google Pay, PhonePe, Paytm, or BHIM.</p>
+                                    <p>2. Scan the QR code or transfer to the official UPI ID.</p>
+                                    <p>3. Note down the Transaction / UTR / Reference ID.</p>
+                                    <p>4. Take a clear screenshot of the completed payment.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Proof Form -->
+                    <div class="form-grid" style="margin-top: 1.5rem;">
+                        <div class="form-group">
+                            <label class="form-label" for="participantUpiId">Participant UPI ID <span class="label-muted">(Optional)</span></label>
+                            <input type="text" id="participantUpiId" class="form-input" maxlength="60" placeholder="e.g. yourname@upi">
+                            <div class="form-error" id="err-participantUpiId"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="transactionId">Transaction / UTR / Reference ID *</label>
+                            <input type="text" id="transactionId" class="form-input mono" maxlength="40" placeholder="e.g. 412345678901" autocomplete="off">
+                            <div class="form-error" id="err-transactionId"></div>
+                        </div>
+                    </div>
+
+                    <!-- Drag & Drop Screenshot Upload -->
+                    <div class="form-group">
+                        <label class="form-label">Payment Screenshot * <span class="label-muted">(JPG, JPEG or PNG • Maximum 5 MB)</span></label>
+                        
+                        <div class="file-dropzone" id="paymentDropzone">
+                            <input type="file" id="paymentScreenshot" accept="image/jpeg,image/jpg,image/png" hidden>
+                            
+                            <div class="dropzone-idle" id="dropzoneIdle">
+                                <span class="dropzone-icon">📸</span>
+                                <h3 class="dropzone-title">Upload Payment Screenshot</h3>
+                                <p class="dropzone-sub">Drag & drop your screenshot here or <span class="browse-link">click to browse</span></p>
+                                <span class="dropzone-limits">Accepted: JPG, JPEG, PNG • Max 5 MB</span>
+                            </div>
+
+                            <!-- Selected File Preview Chip -->
+                            <div class="dropzone-preview" id="dropzonePreview" style="display:none;">
+                                <div class="preview-thumb-wrap">
+                                    <img id="previewThumbnail" class="preview-thumb" src="" alt="Payment screenshot preview">
+                                </div>
+                                <div class="preview-meta">
+                                    <span class="preview-filename" id="previewFileName">screenshot.png</span>
+                                    <span class="preview-filesize" id="previewFileSize">0 KB</span>
+                                    <div class="preview-status valid">✓ Valid Image format</div>
+                                </div>
+                                <button type="button" class="btn btn-secondary btn-sm remove-file-btn" id="removeScreenshotBtn">✕ Remove</button>
+                            </div>
+                        </div>
+                        <div class="form-error" id="err-paymentScreenshot"></div>
+                    </div>
+
+                    <!-- Declaration -->
+                    <label class="declaration-box glass">
+                        <input type="checkbox" id="declaration">
+                        <span>
+                            I confirm that the provided team information and payment transaction details are accurate. I understand that all submissions undergo verification by the organizing committee.
+                        </span>
+                    </label>
+                    <div class="form-error" id="err-declaration"></div>
+
+                    <div class="submit-action-row">
+                        <button type="submit" class="btn btn-primary btn-lg glow pulse submit-reg-btn" id="submitBtn">
+                            <span class="btn-text">Complete Registration</span>
+                            <span class="btn-icon">→</span>
+                        </button>
+                    </div>
+                    <div class="submit-feedback" id="submitFeedback"></div>
+                </section>
+
+                <!-- Wizard Navigation Buttons -->
+                <div class="wizard-nav-footer">
+                    <button type="button" class="btn btn-secondary" id="prevBtn" disabled>← Back</button>
+                    <button type="button" class="btn btn-primary" id="nextBtn">Continue →</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="brand-icon">⌘</span>
+                <span>AI ODYSSEY</span>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="rules.html">Rules</a>
+                <a href="register.html">Register</a>
+                <a href="status.html">Check Status</a>
+                <a href="login.html">Login</a>
+                <a href="scoreboard.html">Scoreboard</a>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2026 AI Odyssey — Debug the Arena. Official Event Platform.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="assets/js/supabase-config.js"></script>
+    <script src="assets/js/supabase-client.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/particles.js"></script>
+    <script src="assets/js/navigation.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/registration.js"></script>
+</body>
+</html>

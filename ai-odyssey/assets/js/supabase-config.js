@@ -18,30 +18,12 @@ function env(key, fallback) {
   return fallback;
 }
 
-const SUPABASE_URL = env('NEXT_PUBLIC_SUPABASE_URL', 'https://ybkzjpzzctysnswulkya.supabase.co');
-const SUPABASE_ANON_KEY = env('NEXT_PUBLIC_SUPABASE_ANON_KEY', 'sb_publishable_YRsMWA0NwyU3K-h2w9b5_w_0bm_MDKw');
+const SUPABASE_URL = env('NEXT_PUBLIC_SUPABASE_URL', 'https://mdndlskwwjneirxdcjcy.supabase.co');
+const SUPABASE_ANON_KEY = env('NEXT_PUBLIC_SUPABASE_ANON_KEY', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1kbmRsc2t3d2puZWlyeGRjamN5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU4NDYzMDcsImV4cCI6MjEwMTQyMjMwN30.FcnpMu53Ij67MPSU_oW69kc6HZxVQDsFNbZ0ps8xTxM');
 
 // Table names (must match supabase-schema.sql / the SQL you ran)
 const DB_TABLES = {
-  users: env('NEXT_PUBLIC_SUPABASE_USERS_TABLE', 'players'),             // stores sign-in names, team names, passwords
-  scores: env('NEXT_PUBLIC_SUPABASE_SCORES_TABLE', 'team_scores'),       // stores team points, solved counts, timing
-  registrations: env('NEXT_PUBLIC_SUPABASE_REG_TABLE', 'registrations'), // stores team event registrations
-  members: env('NEXT_PUBLIC_SUPABASE_MEMBERS_TABLE', 'team_members')     // stores team members
-};
-
-// Supabase Storage Bucket configuration
-const STORAGE_CONFIG = {
-  paymentScreenshotsBucket: 'payment-screenshots'
-};
-
-// Event & Payment Configuration (configurable via environment variables or set values)
-const EVENT_CONFIG = {
-  eventName: 'AI Odyssey — Debug the Arena',
-  eventDate: '02 September 2026',
-  minTeamSize: 2,
-  maxTeamSize: 3,
-  upiId: env('NEXT_PUBLIC_EVENT_UPI_ID', '[COLLEGE_UPI_ID]'),
-  registrationFee: env('NEXT_PUBLIC_EVENT_REGISTRATION_FEE', ''),
-  qrCodeUrl: env('NEXT_PUBLIC_EVENT_QR_CODE_URL', '')
+  users: env('NEXT_PUBLIC_SUPABASE_USERS_TABLE', 'players'),       // stores sign-in names, team names, passwords
+  scores: env('NEXT_PUBLIC_SUPABASE_SCORES_TABLE', 'team_scores')  // stores team points, solved counts, timing
 };
 
